@@ -13,7 +13,7 @@ class Tiles extends React.Component { // eslint-disable-line react/prefer-statel
 		}
 	}
 
-	prepareTiles = tiles => sortBy(tiles, [tile  => tile.coords.x, tile  => tile.coords.y]).map((tile, ind) => (<Tile key={ind} tile={tile}/>));
+	prepareTiles = tiles => sortBy(tiles, [tile  => tile && tile.coords ? tile.coords.x : null, tile  => tile && tile.coords ? tile.coords.y : null]).map((tile, ind) => (<Tile key={ind} tile={tile}/>));
 
 	render() {
 		const { prepareTiles, props: { tiles } } = this;
